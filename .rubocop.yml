@@ -1,0 +1,106 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+Rails:
+  Enabled: true
+
+# 対象外
+AllCops:
+  Exclude:
+    - "vendor/**/*"
+    - "bin/**"
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "tmp/**/*"
+    - "lib/**/*"
+    - "**/db/migrate/*"
+  SuggestExtensions: false
+  DisplayCopNames: true
+  TargetRubyVersion: 2.6
+
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+
+##################### Style ##################################
+
+# 日本語のコメントを許可する
+Style/AsciiComments:
+  Enabled: false
+
+# ドキュメントの無いpublic classを許可する
+Style/Documentation:
+  Enabled: false
+
+# !! のイディオムを許可
+Style/DoubleNegation:
+  Enabled: false
+
+#文字列をfreezeするか
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# selfが無くても良い時に省略するか
+Style/RedundantSelf:
+  Enabled: false
+
+##################### Layout ##################################
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+Layout/CommentIndentation:
+  Enabled: false
+
+# https://rubocop.readthedocs.io/en/stable/cops_layout/#layoutemptylinesaroundattributeaccessor
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+# https://rubocop.readthedocs.io/en/stable/cops_layout/#layoutspacearoundmethodcalloperator
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+##################### Lint ##################################
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintdeprecatedopensslconstant
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+# https://rubocop.readthedocs.io/en/stable/cops_lint/#lintraiseexception
+Lint/RaiseException:
+  Enabled: true
+
+# https://rubocop.readthedocs.io/en/stable/cops_lint/#lintstructnewoverride
+Lint/StructNewOverride:
+  Enabled: true
+
+##################### Metrics ##################################
+Metrics/BlockLength:
+  CountComments: false
+  Exclude:
+    - "Guardfile"
+    - "config/routes.rb"
+    - "spec/**/*"
+    - "app/views/**/*.jbuilder"
+    - "lib/tasks/dev.rake"
+
+Metrics/ClassLength:
+  Enabled: false
+# 変数の代入(A)、メソッドの呼び出し等(B)、条件分岐(C)から算出される複雑度
+Metrics/AbcSize:
+  Max: 50
+
+# 循環的複雑度 ≒ 分岐の数
+Metrics/CyclomaticComplexity:
+  Max: 40
+
+# 1行の文字数
+Metrics/LineLength:
+  Max: 130
+
+# メソッドの行数
+Metrics/MethodLength:
+  Max: 50

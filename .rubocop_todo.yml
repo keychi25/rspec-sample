@@ -1,0 +1,43 @@
+# Offense count: 2
+Lint/UselessAssignment:
+  Exclude:
+    - "app/controllers/application_controller.rb"
+
+# Offense count: 1
+# Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
+# IgnoredMethods: refine
+Metrics/BlockLength:
+  Max: 40
+
+# Offense count: 2
+# Configuration parameters: MinNameLength, AllowNamesEndingInNumbers, AllowedNames, ForbiddenNames.
+# AllowedNames: at, by, db, id, in, io, ip, of, on, os, pp, to
+Naming/MethodParameterName:
+  Exclude:
+    - "app/controllers/application_controller.rb"
+
+# Offense count: 2
+# Configuration parameters: EnforcedStyle, CheckMethodNames, CheckSymbols, AllowedIdentifiers.
+# SupportedStyles: snake_case, normalcase, non_integer
+# AllowedIdentifiers: capture3, iso8601, rfc1123_date, rfc822, rfc2822, rfc3339
+Naming/VariableNumber:
+  Exclude:
+    - "app/controllers/application_controller.rb"
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - "test/channels/application_cable/connection_test.rb"
+    - "test/test_helper.rb"
+
+# Offense count: 1
+# Cop supports --auto-correct.
+Style/GlobalStdStream:
+  Exclude:
+    - "config/environments/production.rb"
+
+# Offense count: 2
+# Cop supports --auto-correct.
+# Configuration parameters: SafeForConstants.
+Style/RedundantFetchBlock:
+  Exclude:
+    - "config/puma.rb"
